@@ -1,27 +1,11 @@
-import 'package:flutter/foundation.dart' show immutable;
 import 'package:riverpod/riverpod.dart';
 import 'package:uuid/uuid.dart';
 
+import 'todo_model.dart';
+
 const _uuid = Uuid();
 
-/// A read-only description of a todo-item
-@immutable
-class Todo {
-  const Todo({
-    required this.description,
-    required this.id,
-    this.completed = false,
-  });
 
-  final String id;
-  final String description;
-  final bool completed;
-
-  @override
-  String toString() {
-    return 'Todo(description: $description, completed: $completed)';
-  }
-}
 
 /// An object that controls a list of [Todo].
 class TodoList extends Notifier<List<Todo>> {
